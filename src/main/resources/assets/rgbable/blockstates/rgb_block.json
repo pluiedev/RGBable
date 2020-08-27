@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "rgbable:block/rgb_block"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "block.rgbable.rgb_block": "RGB Block",
+    "gui.rgbable.rgb_block": "RGB Block",
+    "gui.rgbable.rgb_block.slider.r": "Red: %s / %s",
+    "gui.rgbable.rgb_block.slider.g": "Green: %s / %s",
+    "gui.rgbable.rgb_block.slider.b": "Blue: %s / %s",
+    "tooltip.rgbable.rgb": "§7RGB: (%s§7, %s§7, %s§7)",
+    "tooltip.rgbable.hex": "§7Hex: #%s",
+    "itemGroup.rgbable": "RGBable"
+}

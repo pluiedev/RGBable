@@ -1,0 +1,6 @@
+{
+    "parent": "rgbable:block/cube_all_rgb",
+    "textures": {
+        "all": "rgbable:block/rgb_block"
+    }
+}

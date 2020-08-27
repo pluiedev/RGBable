@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "rgbable",
+  "version": "${version}",
+  "name": "RGBable",
+  "description": "A library/content mod that lets blocks store RGB color data! r g b go brrrrrrrrrrrrrrrrrrrrrrr",
+  "authors": [
+    "leocth"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/rgbable/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.leocth.rgbable.Rgbable"
+    ],
+    "client": [
+      "com.leocth.rgbable.client.RgbableClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.2"
+  }
+}
