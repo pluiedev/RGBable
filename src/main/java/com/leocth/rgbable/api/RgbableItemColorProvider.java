@@ -1,5 +1,6 @@
 package com.leocth.rgbable.api;
 
+import com.leocth.rgbable.api.color.ColorRepresentable;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.color.item.ItemColorProvider;
@@ -13,9 +14,9 @@ import net.minecraft.item.ItemStack;
  * @author leocth
  */
 @Environment(EnvType.CLIENT)
-public class RgbableItemColorProvider implements ItemColorProvider {
+public class RgbableItemColorProvider implements ItemColorProvider, ColorSerializable {
     @Override
     public int getColor(ItemStack stack, int tintIndex) {
-        return Colorable.getRgbFromItemStack(stack).orElse(Colors.WHITE);
+        return getColorFromStack(stack).map(ColorRepresentable::toPackedRgb).orElse(Colors.WHITE);
     }
 }

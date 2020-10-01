@@ -1,9 +1,9 @@
-package com.leocth.rgbable.client;
+package com.leocth.rgbable.client.gui;
 
 import com.google.common.collect.Lists;
-import com.leocth.rgbable.api.Color3f;
+import com.leocth.rgbable.api.color.RgbColor3f;
 import com.leocth.rgbable.api.NetworkUtilities;
-import com.leocth.rgbable.common.RgbBlockScreenHandler;
+import com.leocth.rgbable.common.screen.RgbBlockScreenHandler;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,20 +25,20 @@ public class RgbBlockScreen extends HandledScreen<RgbBlockScreenHandler> {
     public static final Identifier TEXTURE = new Identifier("rgbable:textures/gui/rgb_block.png");
     private final RgbBlockScreenHandler handler;
     private final List<SliderWidget> sliders = Lists.newArrayList();
-    public Color3f.Mutable color;
+    public RgbColor3f.Mutable color;
 
     public RgbBlockScreen(RgbBlockScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.handler = handler;
         this.backgroundWidth = 176;
         this.backgroundHeight = 91;
-        color = Color3f.fromRgb(handler.getRgb()).toMutable();
+        color = RgbColor3f.fromRgb(handler.getRgb()).toMutable();
     }
 
     @Override
     protected void init() {
         super.init();
-        color = Color3f.fromRgb(handler.getRgb()).toMutable();
+        color = RgbColor3f.fromRgb(handler.getRgb()).toMutable();
 
         int mid = width / 2;
         sliders.add(this.addButton(new SliderWidget(mid - 60, y + 15, 120, 20, LiteralText.EMPTY, color.getR()) {
@@ -101,7 +101,7 @@ public class RgbBlockScreen extends HandledScreen<RgbBlockScreenHandler> {
     }
 
     private void updateAndSyncValues() {
-        int rgb = Color3f.toRgb(color);
+        int rgb = color.toPackedRgb();
         handler.setRgb(rgb);
         handler.sendContentUpdates();
         NetworkUtilities.sendRgbSyncScreenHandlerPacket(handler.syncId, rgb, 0);
@@ -114,6 +114,7 @@ public class RgbBlockScreen extends HandledScreen<RgbBlockScreenHandler> {
         assert this.client != null;
         this.client.getTextureManager().bindTexture(TEXTURE);
         this.drawTexture(matrices, x, y, 0, 0, this.backgroundWidth, this.backgroundHeight);
+        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
     @Override

@@ -39,7 +39,7 @@ public abstract class RgbableBlock extends Block implements BlockEntityProvider,
             if (!world.isClient && !player.isCreative()) {
                 ItemStack itemStack = getItem();
                 CompoundTag tag = new CompoundTag();
-                this.setColorTag(tag, colorable.getRgb());
+                this.setColorToTag(tag, colorable.getColor());
                 itemStack.putSubTag("BlockEntityTag", tag);
                 ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, itemStack);
                 itemEntity.setToDefaultPickupDelay();
@@ -65,7 +65,7 @@ public abstract class RgbableBlock extends Block implements BlockEntityProvider,
         if (blockEntity instanceof Colorable) {
             Colorable colorable = (Colorable) blockEntity;
             CompoundTag tag = new CompoundTag();
-            this.setColorTag(tag, colorable.getRgb());
+            this.setColorToTag(tag, colorable.getColor());
             itemStack.putSubTag("BlockEntityTag", tag);
         }
         return itemStack;

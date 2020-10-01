@@ -1,7 +1,8 @@
-package com.leocth.rgbable.common;
+package com.leocth.rgbable.common.block;
 
 import com.leocth.rgbable.Rgbable;
 import com.leocth.rgbable.api.RgbableBlock;
+import com.leocth.rgbable.common.block.RgbBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -39,7 +40,7 @@ public class RgbBlock extends RgbableBlock {
                 if (be instanceof RgbBlockEntity) {
                     player.openHandledScreen((RgbBlockEntity) be);
                 }
-                return ActionResult.CONSUME;
+                return ActionResult.SUCCESS;
             }
             else {
                 return ActionResult.FAIL;

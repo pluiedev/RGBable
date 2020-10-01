@@ -1,0 +1,14 @@
+{
+    "block.rgbable.rgb_block": "RGB方块",
+    "gui.rgbable.rgb_block": "RGB方块",
+    "gui.rgbable.rgb_block.slider.r": "红: %s / %s",
+    "gui.rgbable.rgb_block.slider.g": "绿: %s / %s",
+    "gui.rgbable.rgb_block.slider.b": "蓝: %s / %s",
+    "tooltip.rgbable.rgb": "§7RGB: (%s§7, %s§7, %s§7)",
+    "tooltip.rgbable.hex": "§十六进制: #%s",
+    "tooltip.rgbable.hsv": "§7HSV: (%s°§7, %s%%§7, %s%%§7)",
+
+    "item.rgbable.paintbrush": "颜料刷",
+
+    "itemGroup.rgbable": "RGB化"
+}

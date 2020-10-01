@@ -1,7 +1,8 @@
-package com.leocth.rgbable.common;
+package com.leocth.rgbable.common.block;
 
 import com.leocth.rgbable.Rgbable;
 import com.leocth.rgbable.api.RgbableBlockEntity;
+import com.leocth.rgbable.common.screen.RgbBlockScreenHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.*;

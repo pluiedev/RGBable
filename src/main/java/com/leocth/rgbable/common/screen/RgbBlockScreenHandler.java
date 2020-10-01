@@ -1,6 +1,7 @@
-package com.leocth.rgbable.common;
+package com.leocth.rgbable.common.screen;
 
 import com.leocth.rgbable.Rgbable;
+import com.leocth.rgbable.common.block.RgbBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;

@@ -1,5 +1,7 @@
 package com.leocth.rgbable.api;
 
+import com.leocth.rgbable.api.color.ColorRepresentable;
+import com.leocth.rgbable.api.color.RgbColor3f;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -26,40 +28,40 @@ public abstract class RgbableBlockEntity extends BlockEntity implements BlockEnt
         this.rgb = rgb;
     }
 
-    @Override public Color3f getColor() { return Color3f.fromRgb(rgb); }
-    @Override public void setColor(Color3f color) {
+    @Override public ColorRepresentable getColor() { return RgbColor3f.fromRgb(rgb); }
+    @Override public void setColor(ColorRepresentable color) {
         this.prevRgb = this.rgb;
-        this.rgb = Color3f.toRgb(color);
+        this.rgb = color.toPackedRgb();
     }
 
     @Override
     public void fromTag(BlockState state, CompoundTag tag) {
         super.fromTag(state, tag);
-        rgb = this.getColorTag(tag);
+        this.getColorFromTag(tag).ifPresent(val -> rgb = val.toPackedRgb());
     }
 
     @Override
     public CompoundTag toTag(CompoundTag tag) {
         super.toTag(tag);
-        this.setColorTag(tag, rgb);
+        this.setColorToTag(tag,  RgbColor3f.fromRgb(rgb));
         return tag;
     }
 
     @Override
     public void fromClientTag(CompoundTag tag) {
-        rgb = getColorTag(tag);
+        this.getColorFromTag(tag).ifPresent(val -> rgb = val.toPackedRgb());
     }
 
     @Override
     public CompoundTag toClientTag(CompoundTag tag) {
-        setColorTag(tag, rgb);
+        this.setColorToTag(tag, RgbColor3f.fromRgb(rgb));
         return tag;
     }
 
     public void tick() {
         // updates the color display. only executed in the client
-        if (prevRgb != rgb && this.world != null && this.world.isClient) {
-            this.world.updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), 3);
+        if (prevRgb != rgb && world != null && world.isClient) {
+            world.updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), 3);
             prevRgb = rgb;
         }
     }

@@ -6,5 +6,9 @@
     "gui.rgbable.rgb_block.slider.b": "Blue: %s / %s",
     "tooltip.rgbable.rgb": "§7RGB: (%s§7, %s§7, %s§7)",
     "tooltip.rgbable.hex": "§7Hex: #%s",
+    "tooltip.rgbable.hsv": "§7HSV: (%s°§7, %s%%§7, %s%%§7)",
+
+    "item.rgbable.paintbrush": "Paintbrush",
+
     "itemGroup.rgbable": "RGBable"
 }

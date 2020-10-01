@@ -6,6 +6,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.network.PacketConsumer;
 import net.fabricmc.fabric.api.network.PacketContext;
+import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.Identifier;
@@ -16,6 +17,13 @@ import net.minecraft.util.Identifier;
  */
 public class NetworkUtilities {
     public static final Identifier C2S_RGB_SYNC = new Identifier("rgbable:c2s/rgb_sync");
+
+    @Environment(EnvType.CLIENT)
+    public static void registerS2CPackets() {}
+
+    public static void registerC2SPackets() {
+        ServerSidePacketRegistry.INSTANCE.register(NetworkUtilities.C2S_RGB_SYNC, new RgbSyncScreenHandlerPacketConsumer());
+    }
 
     /**
      * Sends a C2S packet to request a RGB data sync to the server-side {@code ScreenHandler}.

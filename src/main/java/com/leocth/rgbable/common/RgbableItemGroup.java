@@ -72,7 +72,7 @@ public class RgbableItemGroup extends ItemGroup {
         for (int i = 0; i < 24; i++) { // hue
             for (int j = 0; j < 5; j++) { // saturation
                 for (int k = 0; k < 5; k++) { // value
-                    float hue = 1f / 24f * i; //360f / 12f * i;
+                    float hue = 1f / 24f * i;
                     float saturation = 1f / 5f * (j + 1);
                     float value = 1f / 5f * (k + 1);
                     stacks.add(getHsvColoredRgbBlockItemStack(hue, saturation, value));
