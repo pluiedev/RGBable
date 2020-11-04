@@ -7,6 +7,7 @@ import net.minecraft.nbt.CompoundTag;
  * @author leocth
  * @since v1.1.0
  */
+@Deprecated
 public interface ColorRepresentable {
     /**
      * Returns a packed RGB integer that represents the same color value (allowing precision losses)

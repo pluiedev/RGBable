@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
 
+@Deprecated
 public class ColorParser {
 
     private final Object2ObjectOpenHashMap<Identifier, Function<CompoundTag, ColorRepresentable>> type2deserializer

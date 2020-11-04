@@ -7,6 +7,7 @@ import com.leocth.rgbable.api.color.RgbColor3f;
  * Interface that contains colors.
  * @author leocth
  */
+@Deprecated
 public interface Colorable {
 
     int getRgb();

@@ -11,6 +11,7 @@ import net.minecraft.util.math.MathHelper;
  * NOTE: the valid values for hue ranges from 0 to 1, not 0 - 360.
  * @author leocth
  */
+@Deprecated
 public class HsvColor3f implements ColorRepresentable {
     protected float hue;
     protected float saturation;

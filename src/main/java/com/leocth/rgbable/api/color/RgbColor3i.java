@@ -12,6 +12,7 @@ import net.minecraft.util.math.Vec3i;
  * This is the canonical and simplest implementation of ColorRepresentable.
  * @author leocth
  */
+@Deprecated
 public class RgbColor3i implements ColorRepresentable {
     protected int r;
     protected int g;

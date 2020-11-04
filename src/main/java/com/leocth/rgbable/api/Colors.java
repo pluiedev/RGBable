@@ -14,6 +14,7 @@ import java.util.Optional;
  * @author leocth
  */
 public final class Colors {
+    // TODO maybe consider to move it somewhere else?
     public static final int BLACK = 0x000000;
     public static final int WHITE = 0xFFFFFF;
     public static final double EPSILON = 0.00001;
@@ -24,10 +25,12 @@ public final class Colors {
      * @param n the float to be <strong><del>COMPRESSED</del></strong> normalized
      * @return a normalized float
      */
+    @Deprecated
     public static float normalize(float n) {
         return MathHelper.clamp(n, 0f, 1f);
     }
 
+    @Deprecated
     public static Optional<ColorRepresentable> parseOmniaTag(CompoundTag tag, String sub) {
         if (tag.contains(sub)) {
             Tag t = tag.get(sub);
@@ -44,10 +47,12 @@ public final class Colors {
         return Optional.empty();
     }
 
+    @Deprecated
     public static Optional<ColorRepresentable> parseIntTag(IntTag tag) {
         return Optional.of(RgbColor3f.fromRgb(tag.getInt()));
     }
 
+    @Deprecated
     public static Optional<ColorRepresentable> parseStringTag(StringTag tag) {
         String string = tag.toString();
         if (string.startsWith("#")) {
@@ -61,6 +66,7 @@ public final class Colors {
         }
     }
 
+    @Deprecated
     public static HsvColor3f toHsv(RgbColor3f rgb) {
         float r = rgb.getR();
         float g = rgb.getG();

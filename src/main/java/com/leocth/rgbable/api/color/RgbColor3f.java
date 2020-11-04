@@ -11,6 +11,7 @@ import net.minecraft.util.math.Vec3i;
  * Represents an RGB color value with three <i>normalized</i> floats (for red, green, blue)
  * @author leocth
  */
+@Deprecated
 public class RgbColor3f implements ColorRepresentable {
     protected float r;
     protected float g;

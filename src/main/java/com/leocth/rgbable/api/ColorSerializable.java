@@ -10,9 +10,10 @@ import java.util.Optional;
 
 /**
  * Interface for serializing color data. Override these methods to write custom data to the tag.
- * (I dunno, HSV anyone?)
+ * (I dunno, HSV anyone?) (v2 edit: bruh)
  * @author leocth
  */
+@Deprecated
 public interface ColorSerializable {
 
     /**
