@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
  *
  * @author leocth
  */
+@Deprecated
 @Environment(EnvType.CLIENT)
 public class RgbableBlockColorProvider implements BlockColorProvider {
     @Override

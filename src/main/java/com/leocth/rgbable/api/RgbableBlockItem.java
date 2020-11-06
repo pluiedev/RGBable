@@ -23,6 +23,7 @@ import java.util.Optional;
  * A block item that is capable of containing a colorable block.
  * @author leocth
  */
+@Deprecated
 public class RgbableBlockItem extends BlockItem implements ColorSerializable {
 
     public RgbableBlockItem(Block block, Settings settings) {

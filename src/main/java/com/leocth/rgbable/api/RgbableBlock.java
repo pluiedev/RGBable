@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 /**
  * A {@code Block} with the default RGB implementation built-in.
  */
+@Deprecated
 public abstract class RgbableBlock extends Block implements BlockEntityProvider, ColorSerializable {
     public RgbableBlock(Settings settings) {
         super(settings);

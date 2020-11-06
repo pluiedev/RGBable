@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
  *
  * @author leocth
  */
+@Deprecated
 @Environment(EnvType.CLIENT)
 public class RgbableItemColorProvider implements ItemColorProvider, ColorSerializable {
     @Override
