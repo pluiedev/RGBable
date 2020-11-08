@@ -11,6 +11,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+/**
+ * Represents an HSV color value with three <i>normalized</i> floats.
+ * (The valid values for hue ranges from 0 to 1, not 0 - 360)
+ *
+ * @author leocth
+ * @since v2.0.0
+ */
 public class HsvColor3f implements Color {
     public final float hue;
     public final float saturation;

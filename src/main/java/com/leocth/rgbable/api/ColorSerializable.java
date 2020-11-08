@@ -1,7 +1,7 @@
 package com.leocth.rgbable.api;
 
-import com.leocth.rgbable.api.color.RgbColor3f;
 import com.leocth.rgbable.api.color.ColorRepresentable;
+import com.leocth.rgbable.api.color.RgbColor3f;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -11,7 +11,10 @@ import java.util.Optional;
 /**
  * Interface for serializing color data. Override these methods to write custom data to the tag.
  * (I dunno, HSV anyone?) (v2 edit: bruh)
+ *
  * @author leocth
+ * @since v1.0.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public interface ColorSerializable {

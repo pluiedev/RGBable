@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
  * A color value that can be expressed in a packed RGB value, allowing varying implementations.
  * @author leocth
  * @since v1.1.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public interface ColorRepresentable {

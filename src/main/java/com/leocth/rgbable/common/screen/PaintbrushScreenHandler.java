@@ -1,19 +1,14 @@
 package com.leocth.rgbable.common.screen;
 
 import com.leocth.rgbable.Rgbable;
-import com.leocth.rgbable.api.ColorSerializable;
-import com.leocth.rgbable.api.color.RgbColor3f;
-import com.leocth.rgbable.common.block.RgbBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
 
-public class PaintbrushScreenHandler extends ScreenHandler implements ColorSerializable {
+public class PaintbrushScreenHandler extends ScreenHandler /*implements ColorSerializable*/ {
 
     private PropertyDelegate delegate;
     private PlayerEntity player;
@@ -43,6 +38,6 @@ public class PaintbrushScreenHandler extends ScreenHandler implements ColorSeria
     @Override
     public void sendContentUpdates() {
         super.sendContentUpdates();
-        this.setColorToStack(player.getMainHandStack(), RgbColor3f.fromRgb(delegate.get(0)));
+        //this.setColorToStack(player.getMainHandStack(), RgbColor3f.fromRgb(delegate.get(0)));
     }
 }

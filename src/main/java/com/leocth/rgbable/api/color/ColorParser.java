@@ -6,6 +6,9 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
 
+/**
+ * @deprecated v2.0.0
+ */
 @Deprecated
 public class ColorParser {
 

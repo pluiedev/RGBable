@@ -11,7 +11,10 @@ import net.minecraft.util.Tickable;
 
 /**
  * A {@code BlockEntity} with the default RGB implementation built-in.
+ *
  * @author leocth
+ * @since v1.0.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public abstract class RgbableBlockEntity extends BlockEntity implements BlockEntityClientSerializable, Colorable, ColorSerializable, Tickable {

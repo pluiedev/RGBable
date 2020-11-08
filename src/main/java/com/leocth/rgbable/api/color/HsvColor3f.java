@@ -10,6 +10,8 @@ import net.minecraft.util.math.MathHelper;
  * Represents an HSV color value with three <i>normalized</i> floats.
  * NOTE: the valid values for hue ranges from 0 to 1, not 0 - 360.
  * @author leocth
+ * @since v1.1.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public class HsvColor3f implements ColorRepresentable {

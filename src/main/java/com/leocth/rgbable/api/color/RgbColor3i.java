@@ -1,16 +1,16 @@
 package com.leocth.rgbable.api.color;
 
-import com.leocth.rgbable.api.Colors;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3i;
 
 /**
  * Represents an RGB color value with three integers (for red, green, blue), ranging from 0-255.
  * This is the canonical and simplest implementation of ColorRepresentable.
  * @author leocth
+ * @since v1.1.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public class RgbColor3i implements ColorRepresentable {

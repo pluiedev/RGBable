@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
  * @see net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry#register
  *
  * @author leocth
+ * @since v1.0.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 @Environment(EnvType.CLIENT)

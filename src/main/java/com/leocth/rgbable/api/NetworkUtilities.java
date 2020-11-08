@@ -13,8 +13,10 @@ import net.minecraft.util.Identifier;
 
 /**
  * Useful networking stuff.
+ *
  * @author leocth
  */
+// Move to impl?
 public class NetworkUtilities {
     public static final Identifier C2S_RGB_SYNC = new Identifier("rgbable:c2s/rgb_sync");
 
@@ -35,7 +37,6 @@ public class NetworkUtilities {
      *               usually corresponds to the nth property in the {@code PropertyDelegate}(s).
      *
      * @since v1.0.0
-     * @deprecated v2.0.0
      */
     @Environment(EnvType.CLIENT)
     public static void sendRgbSyncScreenHandlerPacket(int syncid, int rgb, int index) {
@@ -52,7 +53,6 @@ public class NetworkUtilities {
      * @see NetworkUtilities#sendRgbSyncScreenHandlerPacket
      *
      * @since v1.0.0
-     * @deprecated v2.0.0
      */
     public static class RgbSyncScreenHandlerPacketConsumer implements PacketConsumer {
         @Override

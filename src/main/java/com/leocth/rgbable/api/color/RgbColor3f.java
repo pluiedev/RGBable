@@ -5,11 +5,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3i;
 
 /**
  * Represents an RGB color value with three <i>normalized</i> floats (for red, green, blue)
  * @author leocth
+ * @since v1.0.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public class RgbColor3f implements ColorRepresentable {

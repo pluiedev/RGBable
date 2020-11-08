@@ -2,13 +2,10 @@ package com.leocth.rgbable.api;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.BlockPos;
@@ -17,6 +14,10 @@ import net.minecraft.world.World;
 
 /**
  * A {@code Block} with the default RGB implementation built-in.
+ *
+ * @author leocth
+ * @since v1.0.0
+ * @deprecated v2.0.0
  */
 @Deprecated
 public abstract class RgbableBlock extends Block implements BlockEntityProvider, ColorSerializable {
