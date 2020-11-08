@@ -1,5 +1,7 @@
-package com.leocth.rgbable.api.v2;
+package com.leocth.rgbable.api.v2.colors;
 
+import com.leocth.rgbable.api.v2.Color;
+import com.leocth.rgbable.api.v2.ColorSerializer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.NotNull;
@@ -8,8 +10,10 @@ import java.util.Objects;
 
 /**
  * Represents an RGB color value with three integers (for red, green, blue), ranging from 0-255.
- * This is the canonical and simplest implementation of {@see Color}.
+ * This is the canonical and most trivial implementation of {@code Color}.
+ *
  * @author leocth
+ * @since 2.0.0
  */
 public class RgbColor3i implements Color {
     public int r, g, b;
@@ -40,17 +44,14 @@ public class RgbColor3i implements Color {
         return Objects.hash(r, g, b);
     }
 
-    public static class Serializer implements ColorSerializer {
+    public static class Serializer implements ColorSerializer<RgbColor3i> {
         @Override
-        public void serialize(@NotNull Color color, @NotNull CompoundTag tag) {
-            if (color instanceof RgbColor3i) {
-                RgbColor3i rgbColor3i = (RgbColor3i) color;
-                tag.putIntArray("color", new int[]{rgbColor3i.r, rgbColor3i.g, rgbColor3i.b});
-            }
+        public void serialize(@NotNull RgbColor3i color, @NotNull CompoundTag tag) {
+            tag.putIntArray("color", new int[]{color.r, color.g, color.b});
         }
 
         @Override
-        public Color deserialize(@NotNull CompoundTag tag) {
+        public RgbColor3i deserialize(@NotNull CompoundTag tag) {
             int[] arr = tag.getIntArray("color");
             if (arr != null && arr.length == 3) {
                 return new RgbColor3i(arr[0], arr[1], arr[2]);

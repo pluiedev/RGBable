@@ -1,6 +1,6 @@
 package com.leocth.rgbable.impl.v2;
 
-import com.leocth.rgbable.api.v2.RgbableColorProviderRegistry;
+import com.leocth.rgbable.api.v2.registry.RgbableColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.block.BlockColorProvider;

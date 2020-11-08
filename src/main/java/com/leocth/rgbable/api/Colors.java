@@ -14,7 +14,6 @@ import java.util.Optional;
  * @author leocth
  */
 public final class Colors {
-    // TODO maybe consider to move it somewhere else?
     public static final int BLACK = 0x000000;
     public static final int WHITE = 0xFFFFFF;
     public static final double EPSILON = 0.00001;
@@ -25,7 +24,6 @@ public final class Colors {
      * @param n the float to be <strong><del>COMPRESSED</del></strong> normalized
      * @return a normalized float
      */
-    @Deprecated
     public static float normalize(float n) {
         return MathHelper.clamp(n, 0f, 1f);
     }

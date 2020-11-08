@@ -1,21 +1,19 @@
 package com.leocth.rgbable;
 
 import com.leocth.rgbable.api.NetworkUtilities;
-import com.leocth.rgbable.api.RgbableBlockItem;
+import com.leocth.rgbable.api.v2.Color;
+import com.leocth.rgbable.api.v2.ColorSerializer;
+import com.leocth.rgbable.api.v2.colors.HsvColor3f;
+import com.leocth.rgbable.api.v2.registry.ColorSerializerRegistry;
+import com.leocth.rgbable.api.v2.colors.RgbColor3i;
+import com.leocth.rgbable.common.RgbableItemGroup;
 import com.leocth.rgbable.common.block.RgbBlock;
-import com.leocth.rgbable.common.block.RgbBlockEntity;
 import com.leocth.rgbable.common.block.RgbBlockItem;
 import com.leocth.rgbable.common.item.PaintbrushItem;
-import com.leocth.rgbable.common.screen.PaintbrushScreenHandler;
-import com.leocth.rgbable.common.screen.RgbBlockScreenHandler;
-import com.leocth.rgbable.common.RgbableItemGroup;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
@@ -47,6 +45,9 @@ public class Rgbable implements ModInitializer {
         //Registry.register(Registry.BLOCK_ENTITY_TYPE, RGB_BLOCK_ID, RGB_BLOCK_TYPE);
 
         Registry.register(Registry.ITEM, PAINTBRUSH_ID, PAINTBRUSH_ITEM);
+
+        registerColorSerializer("rgbcolor3i", RgbColor3i.class, new RgbColor3i.Serializer());
+        registerColorSerializer("hsvcolor3f", HsvColor3f.class, new HsvColor3f.Serializer());
     }
 
     static {
@@ -64,5 +65,9 @@ public class Rgbable implements ModInitializer {
 
     public static Identifier id(String path) {
         return new Identifier(MODID, path);
+    }
+
+    private static <T extends Color> void registerColorSerializer(String strId, Class<T> colorClass, ColorSerializer<T> serializer) {
+        ColorSerializerRegistry.INSTANCE.register(id(strId), colorClass, serializer);
     }
 }

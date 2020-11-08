@@ -22,6 +22,8 @@ public class Tooltips {
             int b = rgb       & 255;
             tooltip.add(new TranslatableText("tooltip.rgbable.rgb", r, g, b));
             tooltip.add(new TranslatableText("tooltip.rgbable.hex", String.format("%06X", rgb)));
+        } else {
+            tooltip.add(new TranslatableText("tooltip.rgbable.colorless"));
         }
     }
 }

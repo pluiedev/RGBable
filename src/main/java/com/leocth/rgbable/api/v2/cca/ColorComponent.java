@@ -5,6 +5,12 @@ import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Represents a Cardinal Components API {@code Component} that stores color data.
+ *
+ * @author leocth
+ * @since 2.0.0
+ */
 public interface ColorComponent extends Component, AutoSyncedComponent {
     @Nullable Color getColor();
     void setColor(@Nullable Color color);

@@ -2,8 +2,7 @@ package com.leocth.rgbable.client;
 
 import com.leocth.rgbable.Rgbable;
 import com.leocth.rgbable.api.NetworkUtilities;
-import com.leocth.rgbable.api.v2.RgbableColorProviderRegistry;
-import com.leocth.rgbable.impl.v2.ColorProviderImpl;
+import com.leocth.rgbable.api.v2.registry.RgbableColorProviderRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

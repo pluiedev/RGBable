@@ -1,42 +1,26 @@
 package com.leocth.rgbable.common.item;
 
 import com.leocth.rgbable.Rgbable;
-import com.leocth.rgbable.api.ColorSerializable;
-import com.leocth.rgbable.api.RgbableBlockEntity;
-import com.leocth.rgbable.api.color.ColorRepresentable;
-import com.leocth.rgbable.api.color.RgbColor3f;
-import com.leocth.rgbable.api.v2.RgbColor3i;
 import com.leocth.rgbable.api.v2.cca.ColorComponent;
 import com.leocth.rgbable.api.v2.cca.ColorComponents;
+import com.leocth.rgbable.api.v2.colors.HsvColor3f;
 import com.leocth.rgbable.common.misc.Tooltips;
-import com.leocth.rgbable.common.screen.PaintbrushScreenHandler;
 import dev.onyxstudios.cca.api.v3.block.BlockComponents;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Consumer;
 
 public class PaintbrushItem extends Item /*implements NamedScreenHandlerFactory*/ {
 
@@ -56,6 +40,7 @@ public class PaintbrushItem extends Item /*implements NamedScreenHandlerFactory*
 
             ColorComponent targetBlockComponent = BlockComponents.get(ColorComponents.COLOR, state, world, pos);
             ColorComponent itemComponent = ColorComponent.get(stack);
+            itemComponent.setColor(new HsvColor3f(0.57f, 1.0f, 1.0f)); // debug
             if (targetBlockComponent != null) {
                 targetBlockComponent.setColor(itemComponent.getColor());
                 world.updateListeners(pos, state, state, 3); // wakey wakey

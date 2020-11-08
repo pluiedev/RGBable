@@ -7,6 +7,9 @@ import java.util.Optional;
  * Might result in precision loss.
  * @param <T> the source type
  * @param <R> the result type
+ *
+ * @author leocth
+ * @since 2.0.0
  */
 @FunctionalInterface
 public interface ColorConverter<T extends Color, R extends Color> {
