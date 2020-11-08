@@ -22,6 +22,8 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
@@ -50,12 +52,16 @@ public class PaintbrushItem extends Item /*implements NamedScreenHandlerFactory*
             BlockPos pos = context.getBlockPos();
             ItemStack stack = context.getStack();
             BlockState state = world.getBlockState(pos);
+            PlayerEntity player = context.getPlayer();
+
             ColorComponent targetBlockComponent = BlockComponents.get(ColorComponents.COLOR, state, world, pos);
             ColorComponent itemComponent = ColorComponent.get(stack);
             if (targetBlockComponent != null) {
                 targetBlockComponent.setColor(itemComponent.getColor());
                 world.updateListeners(pos, state, state, 3); // wakey wakey
-                stack.damage(1,  context.getPlayer(), (p) -> p.sendToolBreakStatus(context.getHand()));
+                if (player != null)
+                    stack.damage(1,  player, (p) -> p.sendToolBreakStatus(context.getHand()));
+                world.playSound(null, pos, SoundEvents.ENTITY_FISHING_BOBBER_SPLASH, SoundCategory.PLAYERS, 0.5f, 1.5f);
                 return ActionResult.SUCCESS;
             }
         }
