@@ -9,17 +9,17 @@ import org.jetbrains.annotations.Nullable;
  *
  * @since 2.0.0
  */
-public interface ColorSerializer {
+public interface ColorSerializer<T extends Color> {
 
     /**
      * Serializes and saves the color data into a {@see CompoundTag}.
      * @param tag the tag to serialize to
      */
-    @Nullable Color deserialize(@NotNull CompoundTag tag);
+    @Nullable T deserialize(@NotNull CompoundTag tag);
 
     /**
      * Loads and deserializes the color data from a {@see CompoundTag}.
      * @param tag the tag to deserialize from
      */
-    void serialize(@NotNull Color color, @NotNull CompoundTag tag);
+    void serialize(@NotNull T color, @NotNull CompoundTag tag);
 }

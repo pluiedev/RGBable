@@ -33,6 +33,9 @@ public class NetworkUtilities {
      * @param rgb    the "packed" RGB integer.
      * @param index  the index of the {@code Property} in {@code ScreenHandler.properties},
      *               usually corresponds to the nth property in the {@code PropertyDelegate}(s).
+     *
+     * @since v1.0.0
+     * @deprecated v2.0.0
      */
     @Environment(EnvType.CLIENT)
     public static void sendRgbSyncScreenHandlerPacket(int syncid, int rgb, int index) {
@@ -47,6 +50,9 @@ public class NetworkUtilities {
     /**
      * Packet consumer for {@code NetworkUtilities#sendRgbSyncScreenHandlerPacket}.
      * @see NetworkUtilities#sendRgbSyncScreenHandlerPacket
+     *
+     * @since v1.0.0
+     * @deprecated v2.0.0
      */
     public static class RgbSyncScreenHandlerPacketConsumer implements PacketConsumer {
         @Override

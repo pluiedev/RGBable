@@ -17,7 +17,7 @@ public class RgbBlockScreenHandler extends ScreenHandler {
     private ScreenHandlerContext context;
 
     public RgbBlockScreenHandler(int syncId, PropertyDelegate delegate, ScreenHandlerContext context) {
-        super(Rgbable.RGB_BLOCK_SH, syncId);
+        super(null/*Rgbable.RGB_BLOCK_SH*/, syncId);
         checkDataCount(delegate, 1);
         this.delegate = delegate;
         this.context = context;

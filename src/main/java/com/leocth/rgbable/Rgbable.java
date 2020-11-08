@@ -4,6 +4,7 @@ import com.leocth.rgbable.api.NetworkUtilities;
 import com.leocth.rgbable.api.RgbableBlockItem;
 import com.leocth.rgbable.common.block.RgbBlock;
 import com.leocth.rgbable.common.block.RgbBlockEntity;
+import com.leocth.rgbable.common.block.RgbBlockItem;
 import com.leocth.rgbable.common.item.PaintbrushItem;
 import com.leocth.rgbable.common.screen.PaintbrushScreenHandler;
 import com.leocth.rgbable.common.screen.RgbBlockScreenHandler;
@@ -11,6 +12,7 @@ import com.leocth.rgbable.common.RgbableItemGroup;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandlerType;
@@ -27,13 +29,13 @@ public class Rgbable implements ModInitializer {
     public static final String MODID = "rgbable";
     public static final Identifier RGB_BLOCK_ID;
     public static final RgbBlock RGB_BLOCK;
-    public static final RgbableBlockItem RGB_BLOCK_ITEM;
-    public static final BlockEntityType<RgbBlockEntity> RGB_BLOCK_TYPE;
-    public static final ScreenHandlerType<RgbBlockScreenHandler> RGB_BLOCK_SH;
+    public static final BlockItem RGB_BLOCK_ITEM;
+    //public static final BlockEntityType<RgbBlockEntity> RGB_BLOCK_TYPE;
+    //public static final ScreenHandlerType<RgbBlockScreenHandler> RGB_BLOCK_SH;
 
     public static final Identifier PAINTBRUSH_ID;
     public static final PaintbrushItem PAINTBRUSH_ITEM;
-    public static final ScreenHandlerType<PaintbrushScreenHandler> PAINTBRUSH_SH;
+    //public static final ScreenHandlerType<PaintbrushScreenHandler> PAINTBRUSH_SH;
     public static final ItemGroup ITEM_GROUP;
 
     @Override
@@ -42,23 +44,25 @@ public class Rgbable implements ModInitializer {
         NetworkUtilities.registerC2SPackets();
         Registry.register(Registry.BLOCK, RGB_BLOCK_ID, RGB_BLOCK);
         Registry.register(Registry.ITEM, RGB_BLOCK_ID, RGB_BLOCK_ITEM);
-        Registry.register(Registry.BLOCK_ENTITY_TYPE, RGB_BLOCK_ID, RGB_BLOCK_TYPE);
+        //Registry.register(Registry.BLOCK_ENTITY_TYPE, RGB_BLOCK_ID, RGB_BLOCK_TYPE);
 
         Registry.register(Registry.ITEM, PAINTBRUSH_ID, PAINTBRUSH_ITEM);
     }
 
     static {
-        RGB_BLOCK_ID = new Identifier(MODID, "rgb_block");
+        RGB_BLOCK_ID = id("rgb_block");
         RGB_BLOCK = new RgbBlock();
-        RGB_BLOCK_ITEM = new RgbableBlockItem(RGB_BLOCK, new Item.Settings());
+        RGB_BLOCK_ITEM = new RgbBlockItem(RGB_BLOCK, new Item.Settings());
         ITEM_GROUP = RgbableItemGroup.make(MODID);
-        RGB_BLOCK_TYPE = BlockEntityType.Builder.create(RgbBlockEntity::new, RGB_BLOCK).build(null);
-        RGB_BLOCK_SH = ScreenHandlerRegistry.registerSimple(RGB_BLOCK_ID, (syncid, ignored) -> new RgbBlockScreenHandler(syncid));
+        //RGB_BLOCK_TYPE = BlockEntityType.Builder.create(RgbBlockEntity::new, RGB_BLOCK).build(null);
+        //RGB_BLOCK_SH = ScreenHandlerRegistry.registerSimple(RGB_BLOCK_ID, (syncid, ignored) -> new RgbBlockScreenHandler(syncid));
 
         PAINTBRUSH_ID = new Identifier(MODID, "paintbrush");
         PAINTBRUSH_ITEM = new PaintbrushItem();
-        PAINTBRUSH_SH = ScreenHandlerRegistry.registerSimple(PAINTBRUSH_ID, (syncId, inventory) -> new PaintbrushScreenHandler(syncId, inventory.player));
+        //PAINTBRUSH_SH = ScreenHandlerRegistry.registerSimple(PAINTBRUSH_ID, (syncId, inventory) -> new PaintbrushScreenHandler(syncId, inventory.player));
     }
 
-
+    public static Identifier id(String path) {
+        return new Identifier(MODID, path);
+    }
 }

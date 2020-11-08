@@ -1,27 +1,38 @@
 {
-  "schemaVersion": 1,
-  "id": "rgbable",
-  "version": "${version}",
-  "name": "RGBable",
-  "description": "A library/content mod that lets blocks store RGB color data! r g b go brrrrrrrrrrrrrrrrrrrrrrr",
-  "authors": [
-    "leocth"
-  ],
-  "contact": {},
-  "license": "MIT",
-  "icon": "assets/rgbable/logo.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.leocth.rgbable.Rgbable"
+    "schemaVersion": 1,
+    "id": "rgbable",
+    "version": "${version}",
+    "name": "RGBable",
+    "description": "A library/content mod that lets blocks store RGB color data! r g b go brrrrrrrrrrrrrrrrrrrrrrr",
+    "authors": [
+        "leocth"
     ],
-    "client": [
-      "com.leocth.rgbable.client.RgbableClient"
-    ]
-  },
-  "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": "1.16.2"
-  }
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/rgbable/logo.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.leocth.rgbable.Rgbable"
+        ],
+        "client": [
+            "com.leocth.rgbable.client.RgbableClient"
+        ],
+        "cardinal-components-block": [
+            "com.leocth.rgbable.impl.v2.ColorComponentInitializer"
+        ],
+        "cardinal-components-item": [
+            "com.leocth.rgbable.impl.v2.ColorComponentInitializer"
+        ]
+    },
+    "custom": {
+        "cardinal-components": [
+            "rgbable:color"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=0.7.4",
+        "fabric": "*",
+        "minecraft": "1.16.x"
+    }
 }

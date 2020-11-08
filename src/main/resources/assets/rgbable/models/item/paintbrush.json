@@ -1,5 +1,5 @@
 {
-    "parent": "minecraft:item/generated",
+    "parent": "item/handheld",
     "textures": {
         "layer0": "rgbable:item/paintbrush",
         "layer1": "rgbable:item/paintbrush_overlay"

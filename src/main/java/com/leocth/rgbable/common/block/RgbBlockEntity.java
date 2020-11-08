@@ -27,7 +27,7 @@ public class RgbBlockEntity extends RgbableBlockEntity implements NamedScreenHan
     };
 
     public RgbBlockEntity() {
-        super(Rgbable.RGB_BLOCK_TYPE);
+        super(null/*Rgbable.RGB_BLOCK_TYPE*/);
     }
 
     @Override

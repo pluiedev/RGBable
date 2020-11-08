@@ -19,7 +19,7 @@ public class PaintbrushScreenHandler extends ScreenHandler implements ColorSeria
     private PlayerEntity player;
 
     public PaintbrushScreenHandler(int syncId, PropertyDelegate delegate, PlayerEntity player) {
-        super(Rgbable.RGB_BLOCK_SH, syncId);
+        super(null/*Rgbable.RGB_BLOCK_SH*/, syncId);
         checkDataCount(delegate, 1);
         this.delegate = delegate;
         this.player = player;

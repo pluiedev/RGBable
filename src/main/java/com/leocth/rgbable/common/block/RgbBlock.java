@@ -4,6 +4,7 @@ import com.leocth.rgbable.Rgbable;
 import com.leocth.rgbable.api.RgbableBlock;
 import com.leocth.rgbable.common.block.RgbBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,11 +17,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class RgbBlock extends RgbableBlock {
+public class RgbBlock extends Block {
     public RgbBlock() {
         super(FabricBlockSettings.copy(Blocks.STONE));
     }
 
+    /*
     @Override
     public ItemStack getItem() {
         return new ItemStack(Rgbable.RGB_BLOCK_ITEM);
@@ -50,4 +52,5 @@ public class RgbBlock extends RgbableBlock {
             return ActionResult.FAIL;
         }
     }
+    */
 }

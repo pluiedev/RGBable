@@ -3,9 +3,9 @@ package com.leocth.rgbable.client;
 import com.leocth.rgbable.Rgbable;
 import com.leocth.rgbable.api.Colors;
 import com.leocth.rgbable.api.NetworkUtilities;
-import com.leocth.rgbable.api.RgbableBlockColorProvider;
-import com.leocth.rgbable.api.RgbableItemColorProvider;
 import com.leocth.rgbable.api.color.ColorRepresentable;
+import com.leocth.rgbable.api.v2.providers.RgbableBlockColorProvider;
+import com.leocth.rgbable.api.v2.providers.RgbableItemColorProvider;
 import com.leocth.rgbable.client.gui.PaintbrushScreen;
 import com.leocth.rgbable.client.gui.RgbBlockScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,7 +22,7 @@ public class RgbableClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register(new RgbableItemColorProvider(), Rgbable.RGB_BLOCK_ITEM);
         ColorProviderRegistry.ITEM.register(new PaintbrushItemColorProvider(), Rgbable.PAINTBRUSH_ITEM);
         NetworkUtilities.registerS2CPackets();
-        ScreenRegistry.register(Rgbable.RGB_BLOCK_SH, RgbBlockScreen::new);
-        ScreenRegistry.register(Rgbable.PAINTBRUSH_SH, PaintbrushScreen::new);
+        //ScreenRegistry.register(Rgbable.RGB_BLOCK_SH, RgbBlockScreen::new);
+        //ScreenRegistry.register(Rgbable.PAINTBRUSH_SH, PaintbrushScreen::new);
     }
 }
