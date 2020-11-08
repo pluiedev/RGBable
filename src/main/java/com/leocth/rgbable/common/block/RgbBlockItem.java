@@ -3,6 +3,7 @@ package com.leocth.rgbable.common.block;
 import com.leocth.rgbable.api.v2.Color;
 import com.leocth.rgbable.api.v2.cca.ColorComponent;
 import com.leocth.rgbable.api.v2.cca.ColorComponents;
+import com.leocth.rgbable.common.misc.Tooltips;
 import dev.onyxstudios.cca.api.v3.block.BlockComponents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -35,6 +36,7 @@ public class RgbBlockItem extends BlockItem {
      * @return mark dirty flag, I guess?
      */
     @Override
+    @SuppressWarnings("UnstableApiUsage")
     protected boolean postPlacement(BlockPos pos, World world, @Nullable PlayerEntity player, ItemStack stack, BlockState state) {
         ColorComponent targetBlockComponent = BlockComponents.get(ColorComponents.COLOR, state, world, pos);
         ColorComponent itemComponent = ColorComponent.get(stack);
@@ -49,15 +51,6 @@ public class RgbBlockItem extends BlockItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        ColorComponent itemComponent = ColorComponent.get(stack);
-        Color color = itemComponent.getColor();
-        if (color != null) {
-            int rgb = color.toRgb();
-            int r = rgb >> 16 & 255;
-            int g = rgb >> 8  & 255;
-            int b = rgb       & 255;
-            tooltip.add(new TranslatableText("tooltip.rgbable.rgb", r, g, b));
-            tooltip.add(new TranslatableText("tooltip.rgbable.hex", String.format("%06X", rgb)));
-        }
+        Tooltips.appendColorTooltip(stack, world, tooltip, context);
     }
 }

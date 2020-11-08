@@ -1,25 +1,20 @@
 package com.leocth.rgbable.client;
 
 import com.leocth.rgbable.Rgbable;
-import com.leocth.rgbable.api.Colors;
 import com.leocth.rgbable.api.NetworkUtilities;
-import com.leocth.rgbable.api.color.ColorRepresentable;
-import com.leocth.rgbable.api.v2.providers.RgbableBlockColorProvider;
-import com.leocth.rgbable.api.v2.providers.RgbableItemColorProvider;
-import com.leocth.rgbable.client.gui.PaintbrushScreen;
-import com.leocth.rgbable.client.gui.RgbBlockScreen;
+import com.leocth.rgbable.api.v2.RgbableColorProviderRegistry;
+import com.leocth.rgbable.impl.v2.ColorProviderImpl;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 
 @Environment(EnvType.CLIENT)
 public class RgbableClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        ColorProviderRegistry.BLOCK.register(new RgbableBlockColorProvider(), Rgbable.RGB_BLOCK);
-        ColorProviderRegistry.ITEM.register(new RgbableItemColorProvider(), Rgbable.RGB_BLOCK_ITEM);
+        RgbableColorProviderRegistry.BLOCK.register(Rgbable.RGB_BLOCK);
+        RgbableColorProviderRegistry.ITEM.register(Rgbable.RGB_BLOCK_ITEM);
         ColorProviderRegistry.ITEM.register(new PaintbrushItemColorProvider(), Rgbable.PAINTBRUSH_ITEM);
         NetworkUtilities.registerS2CPackets();
         //ScreenRegistry.register(Rgbable.RGB_BLOCK_SH, RgbBlockScreen::new);

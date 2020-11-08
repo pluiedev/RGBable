@@ -1,11 +1,10 @@
 package com.leocth.rgbable.client;
 
 import com.leocth.rgbable.api.Colors;
-import com.leocth.rgbable.api.color.ColorRepresentable;
-import com.leocth.rgbable.api.v2.providers.RgbableItemColorProvider;
+import com.leocth.rgbable.impl.v2.ColorProviderImpl;
 import net.minecraft.item.ItemStack;
 
-public class PaintbrushItemColorProvider extends RgbableItemColorProvider {
+public class PaintbrushItemColorProvider extends ColorProviderImpl {
     @Override
     public int getColor(ItemStack stack, int tintIndex) {
         if (tintIndex == 1) {

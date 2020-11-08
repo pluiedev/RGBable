@@ -8,10 +8,12 @@ import com.leocth.rgbable.api.color.RgbColor3f;
 import com.leocth.rgbable.api.v2.RgbColor3i;
 import com.leocth.rgbable.api.v2.cca.ColorComponent;
 import com.leocth.rgbable.api.v2.cca.ColorComponents;
+import com.leocth.rgbable.common.misc.Tooltips;
 import com.leocth.rgbable.common.screen.PaintbrushScreenHandler;
 import dev.onyxstudios.cca.api.v3.block.BlockComponents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
@@ -27,8 +29,10 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -39,6 +43,7 @@ public class PaintbrushItem extends Item /*implements NamedScreenHandlerFactory*
     }
 
     @Override
+    @SuppressWarnings("UnstableApiUsage")
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         if (!world.isClient) {
@@ -55,6 +60,12 @@ public class PaintbrushItem extends Item /*implements NamedScreenHandlerFactory*
             }
         }
         return ActionResult.PASS;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
+        Tooltips.appendColorTooltip(stack, world, tooltip, context);
     }
 
     /*

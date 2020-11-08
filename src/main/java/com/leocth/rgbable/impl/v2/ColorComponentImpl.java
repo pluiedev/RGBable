@@ -10,6 +10,11 @@ import org.jetbrains.annotations.Nullable;
 public class ColorComponentImpl implements ColorComponent {
 
     private Color color;
+    /**
+     * for test purposes only
+     */
+    @Deprecated
+    private static final ColorSerializer serializer = new RgbColor3i.Serializer();;
 
     @Override
     public @Nullable Color getColor() {
@@ -24,17 +29,17 @@ public class ColorComponentImpl implements ColorComponent {
     @Override
     public void readFromNbt(CompoundTag tag) {
         //Identifier id = new Identifier(tag.getString("id"));
-        ColorSerializer serializer = new RgbColor3i.Serializer(); //TODO ColorSerializerRegistry.INSTANCE.get(id);
+        //ColorSerializer<RgbColor3i> serializer = new RgbColor3i.Serializer(); //TODO ColorSerializerRegistry.INSTANCE.get(id);
         //if (serializer != null)
-            color = serializer.deserialize(tag);
+        color = serializer.deserialize(tag);
     }
 
     @Override
     public void writeToNbt(CompoundTag tag) {
         //tag.putString("id", );
-        ColorSerializer serializer = new RgbColor3i.Serializer(); //TODO ColorSerializerRegistry.INSTANCE.get(id);
-        if (color != null)
-            serializer.serialize(color, tag);
+        //ColorSerializer serializer = new RgbColor3i.Serializer(); //TODO ColorSerializerRegistry.INSTANCE.get(id);
+        //if (color != null)
+        serializer.serialize(color, tag);
     }
 
     @Override
