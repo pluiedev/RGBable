@@ -2,8 +2,8 @@ package com.leocth.rgbable.client.gui;
 
 import com.google.common.collect.Lists;
 import com.leocth.rgbable.api.color.RgbColor3f;
-import com.leocth.rgbable.api.NetworkUtilities;
 import com.leocth.rgbable.common.screen.RgbBlockScreenHandler;
+import com.leocth.rgbable.impl.v2.NetworkUtilities;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -20,6 +20,7 @@ import net.minecraft.util.math.MathHelper;
 import java.util.List;
 
 @Environment(EnvType.CLIENT)
+@SuppressWarnings("deprecation")
 public class RgbBlockScreen extends HandledScreen<RgbBlockScreenHandler> {
 
     public static final Identifier TEXTURE = new Identifier("rgbable:textures/gui/rgb_block.png");

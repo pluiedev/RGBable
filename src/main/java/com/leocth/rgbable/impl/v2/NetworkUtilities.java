@@ -1,4 +1,4 @@
-package com.leocth.rgbable.api;
+package com.leocth.rgbable.impl.v2;
 
 import io.netty.buffer.Unpooled;
 import net.fabricmc.api.EnvType;
