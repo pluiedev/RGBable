@@ -1,3 +1,6 @@
+# Archived - please use another mod instead
+Such as [Painter's Blocks](https://modrinth.com/mod/painters-blocks). Yeah use that mod instead - it's basically this mod but better.
+
 # RGBable
 A library/content mod that lets blocks store RGB color data!
 
